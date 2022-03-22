@@ -7,20 +7,20 @@ import { client } from '../client';
 function Tweets() {
 	const [response, setResponse] = useState(null);
 
-	const fetchData = () => {
-		client
-			.get('/comments')
-			.then((res) => {
-				setResponse(res.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	};
-
 	useEffect(() => {
+		const fetchData = () => {
+			client
+				.get('/comments')
+				.then((res) => {
+					setResponse(res.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		};
 		fetchData();
 	}, []);
+
 	return (
 		<div>
 			<TweetInput />

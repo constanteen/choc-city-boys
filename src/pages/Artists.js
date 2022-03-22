@@ -6,18 +6,18 @@ import { client } from '../client';
 function Artists() {
   const [response, setResponse] = useState(null);
 
-	const fetchData = () => {
-		client
-			.get('/users')
-			.then((res) => {
-				setResponse(res.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	};
-
 	useEffect(() => {
+		const fetchData = () => {
+			client
+				.get('/users')
+				.then((res) => {
+					setResponse(res.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		};
+
 		fetchData();
 	}, []);
 
